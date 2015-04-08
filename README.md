@@ -2,8 +2,6 @@
 
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
-ES6 dev server
-
 experiments
 
 ## Usage
