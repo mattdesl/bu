@@ -1,0 +1,38 @@
+{
+  "name": "bu",
+  "version": "1.0.0",
+  "description": "quick script to launch budo",
+  "main": "index.js",
+  "license": "MIT",
+  "bin": {
+    "bu": "./index.js"
+  },
+  "author": {
+    "name": "Matt DesLauriers",
+    "email": "dave.des@gmail.com",
+    "url": "https://github.com/mattdesl"
+  },
+  "dependencies": {
+    "babelify": "^6.0.2",
+    "defined": "^1.0.0",
+    "errorify": "git://github.com/mattdesl/errorify.git#fix/babel6",
+    "garnish": "^2.1.1",
+    "getport": "^0.1.0",
+    "minimist": "^1.1.1",
+    "opn": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test.js"
+  },
+  "private": true,
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattdesl/bu.git"
+  },
+  "homepage": "https://github.com/mattdesl/bu",
+  "bugs": {
+    "url": "https://github.com/mattdesl/bu/issues"
+  }
+}
