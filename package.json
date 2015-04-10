@@ -30,7 +30,6 @@
   "scripts": {
     "test": "node test.js"
   },
-  "private": true,
   "keywords": [],
   "repository": {
     "type": "git",
