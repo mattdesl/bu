@@ -12,14 +12,19 @@
     "email": "dave.des@gmail.com",
     "url": "https://github.com/mattdesl"
   },
+  "preferGlobal": true,
   "dependencies": {
     "babelify": "^6.0.2",
+    "budo": "^3.0.0-rc2",
     "defined": "^1.0.0",
-    "errorify": "git://github.com/mattdesl/errorify.git#fix/babel6",
-    "garnish": "^2.1.1",
+    "errorify": "^0.2.3",
+    "garnish": "^2.1.2",
     "getport": "^0.1.0",
+    "handlebars": "^3.0.1",
     "minimist": "^1.1.1",
-    "opn": "^1.0.1"
+    "minstache": "^1.2.0",
+    "opn": "^1.0.1",
+    "through2": "^0.6.5"
   },
   "devDependencies": {},
   "scripts": {

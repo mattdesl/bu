@@ -1,0 +1,38 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<style>
+body > .errorify {
+  color: red;
+  font-family: 'Consolas', monospace;
+  padding: 10px 15px;
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  background: white;
+  margin: 0;
+}
+body > .errorify > b {
+  color: rgb(166, 0, 0);
+}
+</style>
+</head>
+<body>
+<script src="{{{entry}}}" type="text/javascript"></script>
+<script type="text/javascript">
+  var error = document.querySelector('.errorify')
+  if (error) { //clean up babel@6.0 error
+    document.body.style.overflow = 'hidden'
+    var text = error.innerHTML
+    text = text.replace(/while parsing file: .*/, '')
+    text = text.replace(/(Line [0-9]+\:.*\n)/, '\n<b>$1</b>')
+    error.innerHTML = text
+  }
+</script>
+</body>
+</html>

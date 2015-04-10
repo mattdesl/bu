@@ -4,6 +4,7 @@ var defined = require('defined')
 var open = require('opn')
 var budo = require('budo')
 var getport = require('getport')
+var defaultIndex = require('./lib/default-index')
 
 var entries = opts._
 delete opts._
@@ -12,15 +13,16 @@ var stream = require('garnish')()
 stream.pipe(process.stdout)
 opts.stream = stream
 
-var verbose = defined(opts.v, opts.verbose)
-if (verbose !== false)
-  opts.verbose = true
-
 getport(opts.port || 9966, function(err, port) {
   if (err) {
     console.error("Could not find available port.")
     process.exit(1)
   }
+
+  //default verbose
+  var verbose = defined(opts.v, opts.verbose)
+  if (verbose !== false)
+    opts.verbose = true
 
   //ES6 by default, unless --es5 is specified
   var transforms = merge('t').concat(merge('transform'))
@@ -33,14 +35,17 @@ getport(opts.port || 9966, function(err, port) {
   if (plugins.indexOf('errorify') === -1 && debug !== false)
     plugins.unshift(require.resolve('errorify'))
 
+  var shouldOpen = opts.open || opts.o
   delete opts.t
   delete opts.p
+  delete opts.o 
   opts.transform = transforms
   opts.plugin = plugins
   opts.port = port
+  opts.defaultIndex = defaultIndex
   budo(entries, opts)
     .on('connect', function(ev) {
-      if (opts.open || opts.o)
+      if (shouldOpen)
         open(ev.uri)
     })
 })
